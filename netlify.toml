@@ -1,6 +1,1 @@
-[build]
-  command = "npm install && npm run build"
-  functions = "functions" # This line is optional and is only needed if you use Netlify Functions
 
-[dev]
-  command = "npm start"
