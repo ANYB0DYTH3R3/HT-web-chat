@@ -34,10 +34,19 @@
         <div id="chat" class="page">
     <div id="messages" class="chat-messages"></div>
     <form id="messageForm" onsubmit="sendMessage(); return false;">
-        <input type="text" id="messageInput" placeholder="Type your message..." autocomplete="off" required>
+        <input
+            type="text"
+            id="messageInput"
+            placeholder="Type your message..."
+            autocomplete="off"
+            oninput="startTyping()"
+            onblur="stopTyping()"
+            required
+        />
         <button type="submit">Send</button>
     </form>
 </div>
+
 
     <script src="script.js"></script>
 </body>
