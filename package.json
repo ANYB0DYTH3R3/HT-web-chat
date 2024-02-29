@@ -14,7 +14,7 @@
     "email",
     "verification"
   ],
-  "author": "Your Name",
+  "author": "Hunter Tharp",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.0.1",
