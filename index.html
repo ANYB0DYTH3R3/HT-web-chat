@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Add this line inside the <head> section of your HTML -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
-    <title>Web Chat</title>
+    <title> This is not a chat service </title></title>
 </head>
 <body>
     <div id="app">
@@ -31,10 +31,12 @@
         </div>
 
         <div id="chat" class="page">
-            <!-- Chat room content goes here -->
-            <h2>Welcome to the Chat!</h2>
-        </div>
-    </div>
+    <div id="messages" class="chat-messages"></div>
+    <form id="messageForm" onsubmit="sendMessage(); return false;">
+        <input type="text" id="messageInput" placeholder="Type your message..." autocomplete="off" required>
+        <button type="submit">Send</button>
+    </form>
+</div>
 
     <script src="script.js"></script>
 </body>
