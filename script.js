@@ -18,16 +18,33 @@ function login() {
 
 function register() {
     const newUsername = document.getElementById('newUsername').value;
+    const newEmail = document.getElementById('newEmail').value;
     const newPassword = document.getElementById('newPassword').value;
 
     // Send registration request to server
-    socket.emit('register', { username: newUsername, password: newPassword });
+    socket.emit('register', { username: newUsername, email: newEmail, password: newPassword });
+}
+
+function sendMessage() {
+    const messageInput = document.getElementById('messageInput');
+    const message = messageInput.value.trim();
+
+    if (message !== '') {
+        // Send message to the server
+        socket.emit('chat message', message);
+
+        // Clear the input field
+        messageInput.value = '';
+    }
 }
 
 socket.on('chat message', (msg) => {
     // Handle incoming chat messages
-    console.log(msg);
-    // Display the messages in the chat room
+    const messagesDiv = document.getElementById('messages');
+    messagesDiv.innerHTML += `<p>${msg}</p>`;
+
+    // Scroll to the bottom to show the latest message
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
 });
 
-// Additional logic for sending messages and handling UI in the chat room
+// Additional logic for handling UI in the chat room
