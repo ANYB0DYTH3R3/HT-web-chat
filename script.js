@@ -1,21 +1,33 @@
+const socket = io();
+
 function showRegister() {
-    document.getElementById('login').style.display = 'none';
-    document.getElementById('register').style.display = 'block';
+    // ... (no changes needed)
 }
 
 function showLogin() {
-    document.getElementById('login').style.display = 'block';
-    document.getElementById('register').style.display = 'none';
+    // ... (no changes needed)
 }
 
 function login() {
-    // Implement login logic here
-    alert('Login clicked');
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Send login request to server
+    socket.emit('login', { username, password });
 }
 
 function register() {
-    // Implement registration logic here
-    alert('Register clicked');
+    const newUsername = document.getElementById('newUsername').value;
+    const newPassword = document.getElementById('newPassword').value;
+
+    // Send registration request to server
+    socket.emit('register', { username: newUsername, password: newPassword });
 }
 
-// You can add more JavaScript for chat functionality
+socket.on('chat message', (msg) => {
+    // Handle incoming chat messages
+    console.log(msg);
+    // Display the messages in the chat room
+});
+
+// Additional logic for sending messages and handling UI in the chat room
